@@ -27,7 +27,7 @@ procedure generarListaRecursion(var l:lista); //INCISO A
 var
   num:integer; nue:lista;
 begin
-  num:=abs( random(10) ); //abs me asegura que serán mayores que cero
+  num:=abs( random(10) ); //abs me asegura que serán positivos
   if (num <> 0) then begin
     generarListaRecursion(l);
     new(nue);
