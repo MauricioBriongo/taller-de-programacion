@@ -57,17 +57,13 @@ begin
      writeln;
 End;     
 
-procedure ImprimirVectorRecursivo (v: vector; dimL,i: integer); //AGREGUE UNA VARIABLE I
-begin    
-     {-- Completar --}     
-     if (i <= diml ) then begin
-       writeln('Pos ',i,' - ',v[i]);
-       i:=i+1;
-       ImprimirVectorRecursivo(v,diml,i);
-     end;
-     
-     
-end; 
+procedure imprimirVectorRecursivo(v:vector;dimL:integer);
+begin
+  if (dimL <> 0) then begin
+    imprimirVectorRecursivo(v,dimL -1);
+    write(v[dimL],' | ');
+  end;
+end;
 
 function esPar(num:integer):boolean;
 begin
@@ -145,18 +141,15 @@ end;
 var dimL, suma, maximo, valor: integer; 
     v: vector;
     encontre: boolean;
-    i:integer;
 Begin 
   randomize;
-  i:=1;
   CargarVector (v, dimL);
   writeln;
   if (dimL = 0) then writeln ('--- Vector sin elementos ---')
                 else begin
                        ImprimirVector (v, dimL);
-                       ImprimirVectorRecursivo (v, dimL,i);
-                     end;
-  
+                       ImprimirVectorRecursivo (v, dimL);
+                     end; 
   writeln;
   writeln;                   
   suma:= SumarPares(v, dimL);
@@ -165,7 +158,6 @@ Begin
   writeln('La suma de los valores pares del vector es ', suma); 
   writeln;
   writeln;
-  i:=1;
   maximo:=0;
   maximo:= ObtenerMaximo(v, dimL);
   writeln;
