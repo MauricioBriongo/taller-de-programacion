@@ -230,10 +230,10 @@ var
   v:vector; vM:vecMAx; vD:vectorIncisoD;
 begin
   cargarVector(v);
-  imprimirVectorDeArbol(v);
+  imprimirVectorDeArbol(v); //para control
   incisoB(v);
   incisoC(v,vM);
-  imprimirMax(vM);
-  incisoD(v,vd);
+  imprimirMax(vM); //para control
+  incisoD(v,vd); //para control
   informarIncisoD(vd);
 end.
